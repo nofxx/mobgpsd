@@ -1,12 +1,12 @@
 #!/usr/bin/env ruby
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 require "mobgpsd"
-N1 = Mobgpsd::NMEA.new(45.123, -32.456, 100, Time.at(28298392), 1, 8)
-N2 = Mobgpsd::NMEA.new(-45.123, 35.456, 567.8, Time.at(27898392), 1, 9)
-require 'pty'
-require 'thread'
 
 Mobgpsd.start!
-# Mobgpsd.test!
 
-Rack::Handler::WEBrick.run Mobgpsd::Web, :Port => 4000
+if ARGV.join =~ /test/
+  Mobgpsd.test!
+else
+  port = (ARGV[0] || 4000).to_i
+  Rack::Handler::WEBrick.run Mobgpsd::Web, :Port => port
+end

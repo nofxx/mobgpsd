@@ -1,11 +1,8 @@
 require "socket"
+require "thread"
 require "pty"
-require "expect"
-
-WT = 0.033 # 33ms
 
 module Mobgpsd
-
 
   class GPSD
 
@@ -27,7 +24,7 @@ module Mobgpsd
         #shell = @cmd
 
         PTY.spawn(shell) do |r_pty, w_pty, pid|
-          p "start #{r_pty.inspect}"
+          puts "[MobGPSD] FakeGPS => #{r_pty.inspect}"
           Thread.new do
             while chunk = queue.shift
               #p "writing #{chunk}"

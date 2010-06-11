@@ -38,6 +38,7 @@ module Mobgpsd
       #str = "GPRMC,#{hour},#{coords},#{@fix},#{@sat},#{@hz},#{@z},M,#{@z2},M,,"
       "$#{str}*#{csum(str)}"
     end
+
   end
 
 end

@@ -1,14 +1,17 @@
 require "rack"
 
 module Mobgpsd
+
   class Web
 
     class << self
+
     def call(env)
       req = Rack::Request.new(env)
       if req.params['Time'] &&  fix = req.params
         nmea = NMEA.new(fix["Lon"], fix["Lat"], 0, (fix["Time"]))
-        p "Received fix -> #{nmea}"
+        puts "[MobGPSD] Received fix => #{nmea}"
+
         Mobgpsd.gpsd << nmea
 
         [200, {'Content-Type' => 'text/html'}, []]
@@ -17,8 +20,8 @@ module Mobgpsd
       end
     end
 
-      # This was all from the original py version
-      # http://spench.net/drupal/software/iphone-gps
+    # This was all from the original py version
+    # http://spench.net/drupal/software/iphone-gps
     def layout(content=nil)
       <<LAYOUT
 <!--
@@ -342,6 +345,7 @@ function toggleLoop()
 LAYOUT
     end
     end
-        end
+
+  end
 
 end
