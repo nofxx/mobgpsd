@@ -1,9 +1,46 @@
-= mobgpsd
+= MobGPSD
 
-Description goes here.
+Turns your smartphone in a gpsd device (think wardriving).
+
+Start an ad-hoc network with your laptop and your phone while sniffing,
+and get the GPS info from it. Yes, it's ugly, but works when you got an
+internal wifi unused and no usb GPS. Oh, and way more fun than buying one!
+
+
+== Install
+
+  gem install mobgpsd
+
+
+== Use
+
+  mobgpsd [port]
+
+Port defaults to 4000, browse it with your device and have fun!
+
+
+== GPSD
+
+  gpsd -N -G /dev/pts/x
+
+Need to finish the gpsd autostart, use that in the while.
+It shows which pts it's binded when you run mobgpsd.
+
+
+== Thanks
+
+The idea (and javascript code):
+http://spench.net/drupal/software/iphone-gps
+
+I wrote this because the python code didn't worked for me.
+And mostly because rewriting things in Ruby is fun.
+
+PTY Queue (guys at #ruby-lang):
+http://github.com/manveru/ver
+
 
 == Note on Patches/Pull Requests
- 
+
 * Fork the project.
 * Make your feature addition or bug fix.
 * Add tests for it. This is important so I don't break it in a

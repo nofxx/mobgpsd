@@ -17,7 +17,8 @@ module Mobgpsd
       end
     end
 
-
+      # This was all from the original py version
+      # http://spench.net/drupal/software/iphone-gps
     def layout(content=nil)
       <<LAYOUT
 <!--

@@ -6,7 +6,7 @@ begin
   Jeweler::Tasks.new do |gem|
     gem.name = "mobgpsd"
     gem.summary = %Q{Use your mobile as GPS device on the pc}
-    gem.description = %Q{Very cool, try}
+    gem.description = %Q{Turns your smartphone in a gpsd device (think wardriving)}
     gem.email = "x@nofxx.com"
     gem.homepage = "http://github.com/nofxx/mobgpsd"
     gem.authors = ["Marcos Piccinini"]

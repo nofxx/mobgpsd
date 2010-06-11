@@ -5,13 +5,15 @@
 
 Gem::Specification.new do |s|
   s.name = %q{mobgpsd}
-  s.version = "0.0.0"
+  s.version = "0.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Marcos Piccinini"]
-  s.date = %q{2010-06-10}
-  s.description = %q{Very cool, try}
+  s.date = %q{2010-06-11}
+  s.default_executable = %q{mobgpsd}
+  s.description = %q{Turns your smartphone in a gpsd device (think wardriving)}
   s.email = %q{x@nofxx.com}
+  s.executables = ["mobgpsd"]
   s.extra_rdoc_files = [
     "LICENSE",
      "README.rdoc"
@@ -22,9 +24,17 @@ Gem::Specification.new do |s|
      "LICENSE",
      "README.rdoc",
      "Rakefile",
+     "VERSION",
+     "bin/mobgpsd",
      "lib/mobgpsd.rb",
+     "lib/mobgpsd/gpsd.rb",
+     "lib/mobgpsd/nmea.rb",
+     "lib/mobgpsd/web.rb",
+     "mobgpsd.gemspec",
+     "spec/mobgpsd/core_spec.rb",
+     "spec/mobgpsd/nmea_spec.rb",
      "spec/mobgpsd_spec.rb",
-     "spec/spec.opts",
+     "spec/serial.rb",
      "spec/spec_helper.rb"
   ]
   s.homepage = %q{http://github.com/nofxx/mobgpsd}
@@ -33,7 +43,10 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{Use your mobile as GPS device on the pc}
   s.test_files = [
-    "spec/spec_helper.rb",
+    "spec/serial.rb",
+     "spec/spec_helper.rb",
+     "spec/mobgpsd/core_spec.rb",
+     "spec/mobgpsd/nmea_spec.rb",
      "spec/mobgpsd_spec.rb"
   ]
 
