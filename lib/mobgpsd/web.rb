@@ -9,12 +9,12 @@ module Mobgpsd
     def call(env)
       req = Rack::Request.new(env)
       if req.params['Time'] &&  fix = req.params
-        args = fix["Lon"], fix["Lat"], 0, fix["Time"]
+        args = [fix["Lon"], fix["Lat"], 0, fix["Time"]]
         nmea = NMEA.new(*args)
         puts "[MobGPSD] Received fix => #{nmea}"
 
         Mobgpsd.gpsd << nmea
-        Mobgpsd.store << args
+        Mobgpsd.store << args if STORE
 
         [200, {'Content-Type' => 'text/html'}, []]
       else
