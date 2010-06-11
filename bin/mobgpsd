@@ -1,12 +1,14 @@
 #!/usr/bin/env ruby
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
+opt = ARGV.join
+STORE = (opt =~ /mongo|store/)
 require "mobgpsd"
 
 Mobgpsd.start!
 
-if ARGV.join =~ /test/
+if opt =~ /test/
   Mobgpsd.test!
 else
-  port = (ARGV[0] || 4000).to_i
+  port = (ARGV.select { |w| w !~ /\D/ }[0] || 4000).to_i
   Rack::Handler::WEBrick.run Mobgpsd::Web, :Port => port
 end

@@ -32,14 +32,14 @@ module Mobgpsd
               w_pty.flush
             end
           end
-          begin
-            loop do
-              c = r_pty.sysread(1 << 15)
-              on_chunk(c) if c
-            end
-          rescue Errno::EIO, PTY::ChildExited
-            destroy
-          end
+          # begin
+          #   loop do
+          #     c = r_pty.sysread(1 << 15)
+          #     on_chunk(c) if c
+          #   end
+          # rescue Errno::EIO, PTY::ChildExited
+          #   destroy
+          # end
         end
       end
     rescue Errno::EIO, PTY::ChildExited

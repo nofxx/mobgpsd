@@ -27,6 +27,15 @@ Need to finish the gpsd autostart, use that in the while.
 It shows which pts it's binded when you run mobgpsd.
 
 
+== MongoDB 2D Optional
+
+  mobgpsd store
+
+If you have MongoDB up and running, record you log there starting mobgpsd
+with "store". It'll write on a named collection "mobgpsd" by default.
+You need both "mongo" and "mongo_ext" gems for this.
+
+
 == Thanks
 
 The idea (and javascript code):

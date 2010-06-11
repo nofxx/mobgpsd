@@ -4,19 +4,24 @@ require "mobgpsd/web"
 
 module Mobgpsd
 
-  def self.start!
-    @@gpsd ||= GPSD.new
+  class << self
+  attr_reader :gpsd, :store
+
+  def start!
+    if STORE
+      puts "[MobGPSD] Starting store..."
+      require "mobgpsd/store"
+      @store = Store.new
+    end
+    @gpsd  = GPSD.new
   end
 
-  def self.gpsd
-    @@gpsd
-  end
-
-  def self.test!(data="$GPGGA,181944.000,4835.3098,N,00911.4415,E,1,6,1.4,0471.0,M,0.0,M,,0000*69\r\n")
+  def test!(data="TEST")
     loop do
-      @@gpsd << data
-      sleep 0.033 # 33ms
+      @gpsd << data
+      sleep 1 #0.033 # 33ms
     end
   end
 
+  end
 end

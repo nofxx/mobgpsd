@@ -7,6 +7,7 @@ N2 = NMEA.new(-45.123, 35.456, 567.8, Time.at(27898392), 1, 9)
 describe "Mobgpsd::GPSD" do
 
   it "should send a NMEA packet" do
+    pending
     c = GPSD.new
     c.send N2.to_s
     c.close
