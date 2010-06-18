@@ -38,7 +38,7 @@ You need both "mongo" and "mongo_ext" gems for this.
 
 == Thanks
 
-The idea (and javascript code):
+The idea (and javascript code): Balint Seeber
 http://spench.net/drupal/software/iphone-gps
 
 I wrote this because the python code didn't worked for me.
